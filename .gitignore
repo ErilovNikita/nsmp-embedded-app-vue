@@ -83,7 +83,6 @@ lerna-debug.log
 # Vue CLI Service
 .vuepress/
 .vue/
-public/
 
 # JetBrains IDE
 .idea/
