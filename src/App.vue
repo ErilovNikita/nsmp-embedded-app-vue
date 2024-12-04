@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+  import Header from './components/Header.vue';
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue + TypeScript" />
+  <Header msg="Vite + Vue + TypeScript" />
 
   <div class="card">
     <span class="bloc">dfbgd</span>
