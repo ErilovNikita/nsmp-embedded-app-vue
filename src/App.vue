@@ -1,60 +1,39 @@
 <script setup lang="ts">
-  import Header from './components/Header.vue'
+  import User from './components/User.vue';
 
-  import { IJsApi } from '@nsmp/js-api/src/lib/JsApi'
-  import { inject } from 'vue'
-  import { ref } from 'vue'
-
-  const jsApi = inject('jsApi') as IJsApi
-  const blocValue = ref<string>("")
-
-  try {
-    const currentUserUuid = jsApi.getCurrentUser().uuid
-
-    jsApi.restCallAsJson(`/get/${currentUserUuid}`, {"method" : "GET"}).then(response => {
-      const employeeData:any = response
-      blocValue.value = `👋 Привет, ${employeeData.title}!`
-      console.log(response)
-      return void 0;
-    }).catch(error => {
-      blocValue.value = error as string
-    });
-    
-  } catch(e) {
-    blocValue.value = e as string
+  function navigate(url:string) {
+    window.open(url, '_blank')
   }
 </script>
 
 <template>
-  <Header msg="Vite + Vue + TypeScript" />
-
-  <div class="card">
-    <span class="bloc">{{ blocValue }}</span>
+  <div>
+    <img src="/vite.svg" class="logo" alt="Vite logo" @click="navigate('https://vite.dev')"/>
+    <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" @click="navigate('https://vuejs.org')"/>
+    <img src="/typescript.png" class="logo typescript" alt="TypeScript logo" @click="navigate('https://typescriptlang.org')"/>
   </div>
+  <h1>Vite + Vue + TypeScript</h1>
+
+  <User/>
 
   <p class="text-muted">This template was developed and supported by <a href="https://github.com/ErilovNikita/nsmp-embedded-app-vue">ErilovNikita</a></p>
 </template>
 
 <style scoped>
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.vue:hover {
+    filter: drop-shadow(0 0 2em #42b883aa);
+  }
   .text-muted {
     color: #888;
-  }
-  .bloc {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  .bloc:hover {
-    border-color: #646cff;
-  }
-  .bloc:focus,
-  .bloc:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
   }
 </style>
