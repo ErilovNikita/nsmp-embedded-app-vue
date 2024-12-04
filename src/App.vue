@@ -1,12 +1,35 @@
 <script setup lang="ts">
-  import Header from './components/Header.vue';
+  import Header from './components/Header.vue'
+
+  import { IJsApi } from '@nsmp/js-api/src/lib/JsApi'
+  import { inject } from 'vue'
+  import { ref } from 'vue'
+
+  const jsApi = inject('jsApi') as IJsApi
+  const blocValue = ref<string>("")
+
+  try {
+    const currentUserUuid = jsApi.getCurrentUser().uuid
+
+    jsApi.restCallAsJson(`/get/${currentUserUuid}`, {"method" : "GET"}).then(response => {
+      const employeeData:any = response
+      blocValue.value = `👋 Привет, ${employeeData.title}!`
+      console.log(response)
+      return void 0;
+    }).catch(error => {
+      blocValue.value = error as string
+    });
+    
+  } catch(e) {
+    blocValue.value = e as string
+  }
 </script>
 
 <template>
   <Header msg="Vite + Vue + TypeScript" />
 
   <div class="card">
-    <span class="bloc">dfbgd</span>
+    <span class="bloc">{{ blocValue }}</span>
   </div>
 
   <p class="text-muted">This template was developed and supported by <a href="https://github.com/ErilovNikita/nsmp-embedded-app-vue">ErilovNikita</a></p>
