@@ -56,3 +56,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Скриншоты
+![Simple Application](docs/base.png)
