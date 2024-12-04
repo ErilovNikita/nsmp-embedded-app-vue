@@ -15,18 +15,9 @@
     </a>
   </div>
   <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <span class="bloc"></span>
-  </div>
-
-  <p class="text-muted">This template was developed and supported by <a href="https://github.com/ErilovNikita/nsmp-embedded-app-vue">ErilovNikita</a></p>
 </template>
 
 <style scoped>
-  .text-muted {
-    color: #888;
-  }
   .logo {
     height: 6em;
     padding: 1.5em;
@@ -38,23 +29,5 @@
   }
   .logo.vue:hover {
     filter: drop-shadow(0 0 2em #42b883aa);
-  }
-  .bloc {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  .bloc:hover {
-    border-color: #646cff;
-  }
-  .bloc:focus,
-  .bloc:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
   }
 </style>
