@@ -17,7 +17,7 @@
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <span class="bloc">VALUE</span>
+    <span class="bloc"></span>
   </div>
 
   <p class="text-muted">This template was developed and supported by <a href="https://github.com/ErilovNikita/nsmp-embedded-app-vue">ErilovNikita</a></p>
