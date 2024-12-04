@@ -15,8 +15,8 @@ pids
 
 # Environment files
 .env
-.env.*
-.env.*.local
+.env.*[a-k]
+.env.*[m-z]
 
 # Editor directories and files
 .idea/
