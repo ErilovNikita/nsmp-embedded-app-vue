@@ -1,0 +1,1 @@
+# nsmp-embedded-app-vue
