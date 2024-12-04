@@ -99,9 +99,6 @@ public/
 Thumbs.db
 Desktop.ini
 
-# Generated HTML files
-*.html
-
 # ESlint cache
 .eslintcache
 
