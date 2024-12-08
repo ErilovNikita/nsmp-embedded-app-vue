@@ -1,11 +1,17 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import zipPack from "vite-plugin-zip-pack";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
 
-  return {
-    plugins: [vue()],
+  const config = {
+    plugins: [
+      vue(),
+      zipPack({
+        outFileName: `${env.VITE_APP_CODE}-${process.env.npm_package_version}.zip`
+      })
+    ],
     base: "./",
     server: {
       proxy: {
@@ -18,4 +24,12 @@ export default defineConfig(({ mode }) => {
         }
     }
   }
+
+  // if (env.mode === 'production') {
+  //   config.plugins.push(
+  //     zipPack()
+  //   )
+  // }
+
+  return defineConfig(config) 
 })
